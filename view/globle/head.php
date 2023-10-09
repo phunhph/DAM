@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="index.php?controller=home?product=laptop"><img src="../../assets/imgs/logo/logo.png"
+                        <a href="index.php?controller=home&product=laptop"><img src="../../assets/imgs/logo/logo.png"
                                 alt="logo" /></a>
                     </div>
                     <div class="header-right">
@@ -98,10 +98,10 @@
                                     <li>
                                         <a href="#">Danh mục<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
-                                            <li><a href="index.php?controller=product">Laptop</a></li>
-                                            <li><a href="index.php?controller=product">Điện thoại</a>
+                                            <li><a href="index.php?controller=product&product=laptop">Laptop</a></li>
+                                            <li><a href="index.php?controller=product&product=phone">Điện thoại</a>
                                             </li>
-                                            <li><a href="index.php?controller=product">Phụ kiện</a></li>
+                                            <li><a href="index.php?controller=product&product=phukien">Phụ kiện</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -109,7 +109,8 @@
                         </div>
                     </div>
                     <div class="hotline d-none d-lg-block">
-                        <p><i class="fi-rs-smartphone"></i><span><a href="index.php?controller=login">user</a></span>
+                        <p><i class="fi-rs-smartphone"></i><span><a
+                                    href="index.php?controller=login&&act=''">user</a></span>
                         </p>
                     </div>
     </header>
