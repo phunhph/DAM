@@ -27,9 +27,9 @@ class LoginController
 
             // // Thiết lập cookie cho vai trò (role)
             setcookie("role", $role, time() + 3600, "/");
-            echo $_COOKIE['role'];
+
             // Chuyển hướng sau khi đăng nhập thành công
-            // header("Location: index.php?controller=home");
+            header("Location: index.php?controller=home");
             exit();
         } else {
             // Đăng nhập thất bại, xử lý lỗi ở đây (ví dụ: thông báo lỗi)
@@ -37,6 +37,9 @@ class LoginController
         }
     }
     public function signup()
+    {
+    }
+    public function logout()
     {
     }
 }

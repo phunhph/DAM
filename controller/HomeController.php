@@ -5,7 +5,7 @@ class HomeController
     {
         if (isset($_COOKIE["role"])) {
             if ($_COOKIE['role'] == 1) {
-                include('view/home/home.php');
+                include('view/home/homeAdmin.php');
             } else {
                 include('view/home/home.php');
             }
