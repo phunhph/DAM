@@ -1,4 +1,5 @@
 <?php
+include 'modles/product.php';
 class ProductDAO
 {
     private $PDO;
@@ -18,16 +19,15 @@ class ProductDAO
 
     function Select()
     {
-        $sql = "SELECT * FROM products";
+        $sql = "SELECT * FROM `sanpham`";
         $stmt = $this->PDO->prepare($sql);
-        $stmt->bindParam(':category', $category, PDO::PARAM_STR);
         $stmt->execute();
 
         $products = array(); // hoặc $products = [];
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // Tạo đối tượng sản phẩm từ dữ liệu và thêm vào danh sách
-            $product = new Product($row['id'], $row['name'], $row['category'], $row['price']);
+            $product = new Product($row['id'], $row['name'], $row['img'], $row['price']);
             $products[] = $product;
         }
 

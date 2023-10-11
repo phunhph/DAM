@@ -14,16 +14,36 @@ switch ($controller) {
         $homeController = new HomeController();
         $homeController->index();
         break;
+    case 'danhmuc':
+        $productController = new ProductController();
+        $productController->danhmuc();
+        break;
+    case 'hanghoa':
+        $productController = new ProductController();
+        $productController->index();
+        break;
+    case 'khachang':
+        $homeController = new HomeController();
+        $homeController->index();
+        break;
+    case 'logout':
+        $LoginController = new LoginController();
+        $LoginController->logout();
+        break;
+    case 'binhluan':
+        $productController = new ProductController();
+        $productController->binhluan();
+        break;
     case 'product':
         if ($_GET['product'] == 'laptop') {
-            $ProductLaptop = new ProductLaptop();
-            $ProductLaptop->index();
+            $ProductLaptop = new ProductController();
+            $ProductLaptop->laptop();
         } elseif ($_GET['product'] == 'phone') {
-            $productPhone = new ProductPhone;
-            $productPhone->index();
+            $productPhone = new ProductController();
+            $productPhone->Phone();
         } elseif ($_GET['product'] == 'phukien') {
-            $Productphukien = new Productphukien();
-            $Productphukien->index();
+            $Productphukien = new ProductController();
+            $Productphukien->phukien();
         } else {
             $productController = new ProductController();
             $productController->index();

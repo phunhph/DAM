@@ -5,11 +5,12 @@
     </div>
     <div class="row mb menu">
         <ul>
-            <li><a href="">Trang chủ</a></li>
-            <li><a href="">Danh mục</a></li>
-            <li><a href="">Hàng hóa</a></li>
-            <li><a href="">Khách hàng</a></li>
-            <li><a href="">Bình luận</a></li>
+            <li><a href="index.php?controller=home">Trang chủ</a></li>
+            <li><a href="index.php?controller=danhmuc">Danh mục</a></li>
+            <li><a href="index.php?controller=hanghoa">Hàng hóa</a></li>
+            <li><a href="index.php?controller=khachang">Khách hàng</a></li>
+            <li><a href="index.php?controller=binhluan">Bình luận</a></li>
+            <li><a href="index.php?controller=logout">Đăng xuất</a></li>
         </ul>
     </div>
 </header>

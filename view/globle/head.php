@@ -94,7 +94,7 @@
                             <nav>
                                 <ul>
                                     <li><a class="active" href="index.php?controller=home">Home </a></li>
-                                    <li><a href="about.html">About</a></li>
+
                                     <li>
                                         <a href="#">Danh mục<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
@@ -104,6 +104,7 @@
                                             <li><a href="index.php?controller=product&product=phukien">Phụ kiện</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="index.php?controller=logout">Đăng xuất</a></li>
                                 </ul>
                             </nav>
                         </div>

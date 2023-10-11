@@ -41,5 +41,7 @@ class LoginController
     }
     public function logout()
     {
+        setcookie("role", "", time() + 3600, "/");
+        header("Location: index.php?controller=home");
     }
 }

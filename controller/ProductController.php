@@ -3,29 +3,43 @@ class ProductController
 {
     public function index()
     {
+        if (isset($_COOKIE["role"])) {
+            if ($_COOKIE['role'] == 1) {
+
+                include('view/home/homeAdmin.php');
+            } else {
+                include 'view/product/cli/listitem.php';
+            }
+        } else {
+            include 'view/product/cli/listitem.php';
+        }
+    }
+
+    public function Phone()
+    {
+
         include 'view/product/cli/listitem.php';
     }
-}
-class ProductPhone
-{
-    public function index()
-    {
-        $ProductDAO = new ProductDAO();
-        $ProductDAO->Select();
-        include 'view/product/cli/listitem.php';
-    }
-}
-class ProductLaptop
-{
-    public function index()
+
+
+    public function laptop()
     {
         include 'view/product/cli/listitem.php';
     }
-}
-class Productphukien
-{
-    public function index()
+
+
+
+    public function phukien()
     {
         include 'view/product/cli/listitem.php';
+    }
+
+    public function danhmuc()
+    {
+        include('view/home/homeAdmin.php');
+    }
+    public function binhluan()
+    {
+        include('view/home/homeAdmin.php');
     }
 }
