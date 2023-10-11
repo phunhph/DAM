@@ -10,14 +10,26 @@ class HomeController
             if ($_COOKIE['role'] == 1) {
                 include('view/home/homeAdmin.php');
             } else {
+                if (isset($_POST['search']) && $_POST['search'] != "") {
+                    $ProductDAO = new ProductDAO();
+                    $products = $ProductDAO->SelectItem($_POST['search']);
+                    include('view/home/home.php');
+                } else {
+                    $ProductDAO = new ProductDAO();
+                    $products = $ProductDAO->Select();
+                    include('view/home/home.php');
+                }
+            }
+        } else {
+            if (isset($_POST['search']) && $_POST['search'] != "") {
+                $ProductDAO = new ProductDAO();
+                $products = $ProductDAO->SelectItem($_POST['search']);
+                include('view/home/home.php');
+            } else {
                 $ProductDAO = new ProductDAO();
                 $products = $ProductDAO->Select();
                 include('view/home/home.php');
             }
-        } else {
-            $ProductDAO = new ProductDAO();
-            $products = $ProductDAO->Select();
-            include('view/home/home.php');
         }
     }
     public function laptop()

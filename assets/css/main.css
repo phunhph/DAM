@@ -10536,3 +10536,11 @@ span.fi-rs-apps {
     padding-left: 3%;
   }
 }
+.items {
+  display: grid;
+  grid-template-columns: repeat(4, calc(25% - 5%));
+  grid-template-rows: auto; /* Đảm bảo các hàng có chiều cao tự động dựa trên nội dung */
+  grid-column-gap: 5%;
+  grid-row-gap: 5%;
+  margin-bottom: 10%;
+}

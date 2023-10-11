@@ -35,19 +35,10 @@ switch ($controller) {
         $productController->binhluan();
         break;
     case 'product':
-        if ($_GET['product'] == 'laptop') {
-            $ProductLaptop = new ProductController();
-            $ProductLaptop->laptop();
-        } elseif ($_GET['product'] == 'phone') {
-            $productPhone = new ProductController();
-            $productPhone->Phone();
-        } elseif ($_GET['product'] == 'phukien') {
-            $Productphukien = new ProductController();
-            $Productphukien->phukien();
-        } else {
-            $productController = new ProductController();
-            $productController->index();
-        }
+
+        $productController = new ProductController();
+        $productController->index();
+
         break;
     case 'login':
         if ($_GET['act'] == 'signup') {

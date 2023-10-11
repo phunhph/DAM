@@ -19,21 +19,19 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="index.php?controller=home&product=laptop"><img src="../../assets/imgs/logo/logo.png"
-                                alt="logo" /></a>
+                        <a href="index.php?controller=home"><img src="../../assets/imgs/logo/logo.png" alt="logo" /></a>
                     </div>
                     <div class="header-right">
                         <div class="search-style-1">
-                            <form action="#">
-                                <input type="text" placeholder="Search for items..." />
+                            <form action="index.php?controller=home" method="post">
+                                <input type="search" name="search" placeholder="Search for items..." />
                             </form>
                         </div>
                         <div class="header-action-right">
                             <div class="header-action-2">
                                 <div class="header-action-icon-2">
                                     <a href="shop-wishlist.php">
-                                        <img class="svgInject" alt="Surfside Media"
-                                            src="../../assets/imgs/theme/icons/icon-heart.svg" />
+                                        <img class="svgInject" alt="Surfside Media" src="../../assets/imgs/theme/icons/icon-heart.svg" />
                                         <span class="pro-count blue">4</span>
                                     </a>
                                 </div>
@@ -46,8 +44,7 @@
                                         <ul>
                                             <li>
                                                 <div class="shopping-cart-img">
-                                                    <a href="product-details.html"><img alt="Surfside Media"
-                                                            src="../../assets/imgs/shop/thumbnail-3.jpg" /></a>
+                                                    <a href="product-details.html"><img alt="Surfside Media" src="../../assets/imgs/shop/thumbnail-3.jpg" /></a>
                                                 </div>
                                                 <div class="shopping-cart-title">
                                                     <h4>
@@ -85,7 +82,7 @@
                     </div>
                     <div class="header-nav d-none d-lg-flex">
                         <div class="main-categori-wrap d-none d-lg-block">
-                            <a class="categori-button-active" href="index.php?controller=home?product=laptop">
+                            <a class="categori-button-active" href="index.php?controller=home">
                                 <span class="fi-rs-apps"></span> Web-Shop
                             </a>
                         </div>
@@ -110,8 +107,7 @@
                         </div>
                     </div>
                     <div class="hotline d-none d-lg-block">
-                        <p><i class="fi-rs-smartphone"></i><span><a
-                                    href="index.php?controller=login&&act=''">user</a></span>
+                        <p><i class="fi-rs-smartphone"></i><span><a href="index.php?controller=login&&act=''">user</a></span>
                         </p>
                     </div>
     </header>
