@@ -33,4 +33,13 @@ class ProductDAO
 
         return $products;
     }
+    public function add()
+    {
+    }
+    public function delete($id)
+    {
+    }
+    public function update()
+    {
+    }
 }

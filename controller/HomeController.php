@@ -20,4 +20,13 @@ class HomeController
             include('view/home/home.php');
         }
     }
+    public function laptop()
+    {
+    }
+    public function phone()
+    {
+    }
+    public function phukien()
+    {
+    }
 }

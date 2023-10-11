@@ -36,7 +36,11 @@ class ProductController
 
     public function danhmuc()
     {
-        include('view/home/homeAdmin.php');
+        include('view/product/admin/classitemadmin.php');
+    }
+    public function sanpham()
+    {
+        include('view/product/admin/iteam.php');
     }
     public function binhluan()
     {

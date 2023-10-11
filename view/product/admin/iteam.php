@@ -3,16 +3,28 @@ require_once 'view/globle/headadmin.php';
 ?>
 <div class="row2">
     <div class="row2 font_title">
-        <h1>THÊM MỚI LOẠI HÀNG HÓA</h1>
+        <h1>THÊM MỚI SẢN PHẨM</h1>
     </div>
     <div class="row2 form_content ">
         <form action="#" method="POST">
             <div class="row2 mb10 form_content_container">
-                <label> Mã loại </label> <br>
+                <label> Loại </label> <br>
                 <input type="text" name="maloai" placeholder="nhập vào mã loại">
             </div>
             <div class="row2 mb10">
-                <label>Tên loại </label> <br>
+                <label>Tên sp </label> <br>
+                <input type="text" name="tenloai" placeholder="nhập vào tên">
+            </div>
+            <div class="row2 mb10">
+                <label>ảnh </label> <br>
+                <input type="text" name="tenloai" placeholder="nhập vào tên">
+            </div>
+            <div class="row2 mb10">
+                <label>giá </label> <br>
+                <input type="text" name="tenloai" placeholder="nhập vào tên">
+            </div>
+            <div class="row2 mb10">
+                <label>mota</label> <br>
                 <input type="text" name="tenloai" placeholder="nhập vào tên">
             </div>
             <div class="row mb10 ">

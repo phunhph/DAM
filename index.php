@@ -20,11 +20,11 @@ switch ($controller) {
         break;
     case 'hanghoa':
         $productController = new ProductController();
-        $productController->index();
+        $productController->sanpham();
         break;
     case 'khachang':
-        $homeController = new HomeController();
-        $homeController->index();
+        $UserController = new UserController();
+        $UserController->index();
         break;
     case 'logout':
         $LoginController = new LoginController();

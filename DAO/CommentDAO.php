@@ -7,12 +7,13 @@ class HomeDAO
         require_once('../config/PDO.php');
         $this->PDO = $pdo;
     }
-    public function topProducts()
+    public function show($id_pro)
     {
-        $sql = "SELECT * FROM products";
-        $stmt = $this->PDO->prepare($sql);
-        // $stmt->bindParam(':category', $category);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function add($id_pro, $text, $id_u, $day)
+    {
+    }
+    public function delete($id)
+    {
     }
 }
