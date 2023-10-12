@@ -109,7 +109,7 @@ class ProductDAO
         // lưu file
         $fileName = $img['name'];
         $tmp = $img['tmp_name'];
-        $mov = '/assets/imgs/item' . $fileName;
+        $mov = 'assets/imgs/item/' . $fileName;
         move_uploaded_file($tmp, $mov);
         // add server
         // $sql = "INSERT INTO `sanpham`(`name_sp`, `price`, `img`, `mota`, `luotxem`, `iddm`) VALUES ('$name','$price','$fileName','$mota','0','$iddm')";
