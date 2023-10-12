@@ -5,7 +5,7 @@ class LoginDAO
     private $PDO;
     public function __construct()
     {
-        require_once('../config/PDO.php');
+        require_once('config/PDO.php');
         $this->PDO = $pdo;
     }
     public function topProducts()
