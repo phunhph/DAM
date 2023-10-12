@@ -13,10 +13,12 @@ class HomeController
                 if (isset($_POST['search']) && $_POST['search'] != "") {
                     $ProductDAO = new ProductDAO();
                     $products = $ProductDAO->SelectItem($_POST['search']);
+                    $danhmucs = $ProductDAO->showDanhMuc();
                     include('view/home/home.php');
                 } else {
                     $ProductDAO = new ProductDAO();
                     $products = $ProductDAO->Select();
+                    $danhmucs = $ProductDAO->showDanhMuc();
                     include('view/home/home.php');
                 }
             }
@@ -24,10 +26,12 @@ class HomeController
             if (isset($_POST['search']) && $_POST['search'] != "") {
                 $ProductDAO = new ProductDAO();
                 $products = $ProductDAO->SelectItem($_POST['search']);
+                $danhmucs = $ProductDAO->showDanhMuc();
                 include('view/home/home.php');
             } else {
                 $ProductDAO = new ProductDAO();
                 $products = $ProductDAO->Select();
+                $danhmucs = $ProductDAO->showDanhMuc();
                 include('view/home/home.php');
             }
         }

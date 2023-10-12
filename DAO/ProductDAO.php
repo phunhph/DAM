@@ -76,19 +76,19 @@ class ProductDAO
 
         return $danhmucs;
     }
-    public function add($name)
+    public function addDM($name)
     {
         $sql = "INSERT INTO `danhmuc`( `name`) VALUES ('$name')";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
-    public function delete($id)
+    public function deleteDM($id)
     {
         $sql = "DELETE FROM `danhmuc` WHERE id_d=$id";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
-    public function deleteall($id_a)
+    public function deleteallDM($id_a)
     {
         // Chuyển mảng ID thành một chuỗi dạng (id1, id2, id3, ...)
         $id_string = implode(', ', $id_a);
@@ -97,7 +97,41 @@ class ProductDAO
         $stmt->execute();
     }
 
-    public function update($id, $name)
+    public function updateDM($id, $name)
+    {
+
+        $sql = "UPDATE `danhmuc` SET `name`='$name' WHERE `id_d`=" . $id;
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+    }
+    public function addPRO($name, $price, $img, $mota, $iddm)
+    {
+        // lưu file
+        $fileName = $img['name'];
+        $tmp = $img['tmp_name'];
+        $mov = '/assets/imgs/item' . $fileName;
+        move_uploaded_file($tmp, $mov);
+        // add server
+        // $sql = "INSERT INTO `sanpham`(`name_sp`, `price`, `img`, `mota`, `luotxem`, `iddm`) VALUES ('$name','$price','$fileName','$mota','0','$iddm')";
+        // $stmt = $this->PDO->prepare($sql);
+        // $stmt->execute();
+    }
+    public function deletePRO($id)
+    {
+        $sql = "DELETE FROM `danhmuc` WHERE id_d=$id";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+    }
+    public function deleteallPRO($id_a)
+    {
+        // Chuyển mảng ID thành một chuỗi dạng (id1, id2, id3, ...)
+        $id_string = implode(', ', $id_a);
+        $sql = "DELETE FROM `danhmuc` WHERE id_d IN ($id_string)";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+    }
+
+    public function updatePRO($id, $name)
     {
 
         $sql = "UPDATE `danhmuc` SET `name`='$name' WHERE `id_d`=" . $id;

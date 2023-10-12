@@ -31,7 +31,8 @@
                             <div class="header-action-2">
                                 <div class="header-action-icon-2">
                                     <a href="shop-wishlist.php">
-                                        <img class="svgInject" alt="Surfside Media" src="../../assets/imgs/theme/icons/icon-heart.svg" />
+                                        <img class="svgInject" alt="Surfside Media"
+                                            src="../../assets/imgs/theme/icons/icon-heart.svg" />
                                         <span class="pro-count blue">4</span>
                                     </a>
                                 </div>
@@ -44,7 +45,8 @@
                                         <ul>
                                             <li>
                                                 <div class="shopping-cart-img">
-                                                    <a href="product-details.html"><img alt="Surfside Media" src="../../assets/imgs/shop/thumbnail-3.jpg" /></a>
+                                                    <a href="product-details.html"><img alt="Surfside Media"
+                                                            src="../../assets/imgs/shop/thumbnail-3.jpg" /></a>
                                                 </div>
                                                 <div class="shopping-cart-title">
                                                     <h4>
@@ -95,10 +97,23 @@
                                     <li>
                                         <a href="#">Danh mục<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
-                                            <li><a href="index.php?controller=product&product=laptop">Laptop</a></li>
+                                            <?php
+                                            if (isset($danhmucs) && is_array($danhmucs)) {
+                                                foreach ($danhmucs as $danhmuc) {
+                                            ?>
+                                            <li><a
+                                                    href="index.php?controller=product&product=<?php echo $danhmuc->name ?>"><?php echo $danhmuc->name ?></a>
+                                            </li>
+                                            <?php
+                                                }
+                                            } else {
+                                                echo "Trống";
+                                            }
+                                            ?>
+                                            <!-- <li><a href="index.php?controller=product&product=laptop">Laptop</a></li>
                                             <li><a href="index.php?controller=product&product=phone">Điện thoại</a>
                                             </li>
-                                            <li><a href="index.php?controller=product&product=phukien">Phụ kiện</a></li>
+                                            <li><a href="index.php?controller=product&product=phukien">Phụ kiện</a></li> -->
                                         </ul>
                                     </li>
                                     <li><a href="index.php?controller=logout">Đăng xuất</a></li>
@@ -107,7 +122,8 @@
                         </div>
                     </div>
                     <div class="hotline d-none d-lg-block">
-                        <p><i class="fi-rs-smartphone"></i><span><a href="index.php?controller=login&&act=''">user</a></span>
+                        <p><i class="fi-rs-smartphone"></i><span><a
+                                    href="index.php?controller=login&&act=''">user</a></span>
                         </p>
                     </div>
     </header>
