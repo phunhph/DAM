@@ -66,7 +66,7 @@ class ProductDAO
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
 
-        $products = array(); // hoặc $products = [];
+        // $products = array(); // hoặc $products = [];
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // Tạo đối tượng sản phẩm từ dữ liệu và thêm vào danh sách
@@ -96,7 +96,43 @@ class ProductDAO
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
+    //  product
+    public function countProducts()
+    {
+        $sql = "SELECT COUNT(*) as total FROM sanpham"; // Thay đổi "sanpham" thành tên bảng của bạn
 
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            return $result;
+        } else {
+
+            return 0;
+        } // Trả về 0 nếu không có sản phẩm
+    }
+    public function showPRO($page, $perPage)
+    {
+        $start = ($page - 1) * $perPage;
+        $sql = "SELECT sanpham.id_pro, sanpham.name_sp, sanpham.price, sanpham.img, sanpham.mota, sanpham.luotxem, danhmuc.name
+            FROM sanpham
+            JOIN danhmuc ON danhmuc.id_d = sanpham.iddm
+            LIMIT $start, $perPage";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+
+        $products = array(); // hoặc $products = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Tạo đối tượng sản phẩm từ dữ liệu và thêm vào danh sách
+            $product = new ProductShow($row['id_pro'], $row['name_sp'], $row['price'], $row['img'], $row['mota'], $row['luotxem'], $row['name']);
+            $products[] = $product;
+        }
+
+        return $products;
+    }
     public function updateDM($id, $name)
     {
 
@@ -111,14 +147,14 @@ class ProductDAO
         $tmp = $img['tmp_name'];
         $mov = 'assets/imgs/item/' . $fileName;
         move_uploaded_file($tmp, $mov);
-        // add server
-        // $sql = "INSERT INTO `sanpham`(`name_sp`, `price`, `img`, `mota`, `luotxem`, `iddm`) VALUES ('$name','$price','$fileName','$mota','0','$iddm')";
-        // $stmt = $this->PDO->prepare($sql);
-        // $stmt->execute();
+        //add server
+        $sql = "INSERT INTO `sanpham`(`name_sp`, `price`, `img`, `mota`, `luotxem`, `iddm`) VALUES ('$name','$price','$fileName','$mota','0','$iddm')";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
     }
     public function deletePRO($id)
     {
-        $sql = "DELETE FROM `danhmuc` WHERE id_d=$id";
+        $sql = "DELETE FROM `sanpham` WHERE id_pro=$id";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
@@ -126,16 +162,25 @@ class ProductDAO
     {
         // Chuyển mảng ID thành một chuỗi dạng (id1, id2, id3, ...)
         $id_string = implode(', ', $id_a);
-        $sql = "DELETE FROM `danhmuc` WHERE id_d IN ($id_string)";
+        $sql = "DELETE FROM `sanpham` WHERE id_pro IN ($id_string)";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
 
-    public function updatePRO($id, $name)
+    public function updatePRO($id, $name, $price, $img, $mota, $iddm)
     {
-
-        $sql = "UPDATE `danhmuc` SET `name`='$name' WHERE `id_d`=" . $id;
-        $stmt = $this->PDO->prepare($sql);
-        $stmt->execute();
+        if ($img['name'] == '') {
+            $sql = "UPDATE `sanpham` SET `name_sp`='$name',`price`='$price',`mota`='$mota',`iddm`='$iddm' WHERE  `id_pro`=" .  $id;
+            $stmt = $this->PDO->prepare($sql);
+            $stmt->execute();
+        } else {
+            $fileName = $img['name'];
+            $tmp = $img['tmp_name'];
+            $mov = 'assets/imgs/item/' . $fileName;
+            move_uploaded_file($tmp, $mov);
+            $sql = "UPDATE `sanpham` SET `name_sp`='$name',`price`='$price',`mota`='$mota',`iddm`='$iddm' ,`img`='$fileName' WHERE  `id_pro`=" . $id;
+            $stmt = $this->PDO->prepare($sql);
+            $stmt->execute();
+        }
     }
 }

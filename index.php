@@ -35,9 +35,19 @@ switch ($controller) {
         $productController->binhluan();
         break;
     case 'product':
-        if ($_GET['act'] == 'add') {
-            $productController = new ProductController();
-            $productController->sanpham();
+        if (isset($_GET["act"])) {
+            if ($_GET['act'] == 'add') {
+                $productController = new ProductController();
+                $productController->sanpham();
+            }
+            if ($_GET['act'] == 'delete') {
+                $productController = new ProductController();
+                $productController->sanpham();
+            }
+            if ($_GET['act'] == 'fix') {
+                $productController = new ProductController();
+                $productController->sanpham();
+            }
         } else {
             $productController = new ProductController();
             $productController->index();

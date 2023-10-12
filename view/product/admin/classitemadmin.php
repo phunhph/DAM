@@ -81,7 +81,7 @@ require_once 'view/globle/headadmin.php';
                 <div class="row mb10 ">
                     <input class="mr20" type="button" value="CHỌN TẤT CẢ" onclick="selectAll()">
                     <input class="mr20" type="button" value="BỎ CHỌN TẤT CẢ" onclick="deselectAll()">
-                    <input class="mr20" type="submit" value="XOÁ TẤT CẢ" onclick="deselectAll()">
+                    <input class="mr20" type="submit" value="XOÁ TẤT CẢ" ">
                 </div>
             </form>
         </div>
@@ -90,42 +90,37 @@ require_once 'view/globle/headadmin.php';
 </div>
 <script>
 <?php
-    $Date = json_encode($danhmucs);
-    ?>
+$Date = json_encode($danhmucs);
+?>
 
 function ext() {
-    document.getElementById('fix').style.display = "none";
-    document.getElementById('add').style.display = "block";
-}
+    document.getElementById('fix').style.display = " none"; document.getElementById('add').style.display="block" ; }
+                        function fix(event) { var data=<?php echo $Date; ?>; data.forEach((element)=> {
+                    if (element.id_d == event.target.id) {
+                    document.getElementById('id_l').value = element.id_d;
+                    document.getElementById('ten_l').value = element.name;
+                    document.getElementById('add').style.display = "none";
+                    document.getElementById('fix').style.display = "block";
+                    }
+                    });
+                    }
 
-function fix(event) {
-    var data = <?php echo $Date; ?>;
-    data.forEach((element) => {
-        if (element.id_d == event.target.id) {
-            document.getElementById('id_l').value = element.id_d;
-            document.getElementById('ten_l').value = element.name;
-            document.getElementById('add').style.display = "none";
-            document.getElementById('fix').style.display = "block";
-        }
-    });
-}
+                    function show() {
+                    document.getElementById("table").style.display = "block";
+                    }
 
-function show() {
-    document.getElementById("table").style.display = "block";
-}
+                    function selectAll() {
+                    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    checkboxes.forEach(function(checkbox) {
+                    checkbox.checked = true;
+                    });
+                    }
 
-function selectAll() {
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(function(checkbox) {
-        checkbox.checked = true;
-    });
-}
-
-// Hàm để bỏ chọn tất cả các ô checkbox
-function deselectAll() {
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(function(checkbox) {
-        checkbox.checked = false;
-    });
-}
-</script>
+                    // Hàm để bỏ chọn tất cả các ô checkbox
+                    function deselectAll() {
+                    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    checkboxes.forEach(function(checkbox) {
+                    checkbox.checked = false;
+                    });
+                    }
+                    </script>

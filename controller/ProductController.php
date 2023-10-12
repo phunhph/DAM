@@ -48,7 +48,19 @@ class ProductController
         if (isset($_POST['add']) && $_POST['add'] != '') {
             $ProductDAO->addPRO($_POST['tensanpam'], $_POST['gia'], $_FILES['img'], $_POST['mota'], $_POST['iddm']);
         }
+        if (isset($_POST['id_x']) && $_POST['id_x'] != '') {
+            $ProductDAO->deletePRO($_POST['id_x']);
+        }
+        if (isset($_POST['fix']) && $_POST['fix'] != '') {
+            $ProductDAO->updatePRO($_POST['idsp'], $_POST['tensanpam'], $_POST['gia'], $_FILES['img'], $_POST['mota'], $_POST['iddm']);
+        }
+        if (isset($_POST['xoa']) && $_POST['xoa'] != '') {
+            $ProductDAO->deleteallPRO($_POST['xoa']);
+        }
         $danhmucs = $ProductDAO->showDanhMuc();
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $counts = $ProductDAO->countProducts();
+        $sanphams = $ProductDAO->showPRO($page, 5);
         include('view/product/admin/iteam.php');
     }
     public function binhluan()
