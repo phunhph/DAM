@@ -8,9 +8,9 @@
     <meta property="og:type" content="" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../assets/imgs/theme/favicon.ico" />
-    <link rel="stylesheet" href="../../assets/css/main.css" />
-    <link rel="stylesheet" href="../../assets/css/custom.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
 </head>
 
 <body>
@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="index.php?controller=home"><img src="../../assets/imgs/logo/logo.png" alt="logo" /></a>
+                        <a href="index.php?controller=home"><img src="assets/imgs/logo/logo.png" alt="logo" /></a>
                     </div>
                     <div class="header-right">
                         <div class="search-style-1">
@@ -31,22 +31,20 @@
                             <div class="header-action-2">
                                 <div class="header-action-icon-2">
                                     <a href="shop-wishlist.php">
-                                        <img class="svgInject" alt="Surfside Media"
-                                            src="../../assets/imgs/theme/icons/icon-heart.svg" />
+                                        <img class="svgInject" alt="Surfside Media" src="assets/imgs/theme/icons/icon-heart.svg" />
                                         <span class="pro-count blue">4</span>
                                     </a>
                                 </div>
                                 <div class="header-action-icon-2">
                                     <a class="mini-cart-icon" href="cart.html">
-                                        <img alt="Surfside Media" src="../../assets/imgs/theme/icons/icon-cart.svg" />
+                                        <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-cart.svg" />
                                         <span class="pro-count blue">2</span>
                                     </a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                         <ul>
                                             <li>
                                                 <div class="shopping-cart-img">
-                                                    <a href="product-details.html"><img alt="Surfside Media"
-                                                            src="../../assets/imgs/shop/thumbnail-3.jpg" /></a>
+                                                    <a href="product-details.html"><img alt="Surfside Media" src="assets/imgs/shop/thumbnail-3.jpg" /></a>
                                                 </div>
                                                 <div class="shopping-cart-title">
                                                     <h4>
@@ -80,7 +78,7 @@
             <div class="container">
                 <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="index.html"><img src="../../assets/imgs/logo/logo.png" alt="logo" /></a>
+                        <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo" /></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
                         <div class="main-categori-wrap d-none d-lg-block">
@@ -101,9 +99,8 @@
                                             if (isset($danhmucs) && is_array($danhmucs)) {
                                                 foreach ($danhmucs as $danhmuc) {
                                             ?>
-                                            <li><a
-                                                    href="index.php?controller=product&product=<?php echo $danhmuc->name ?>"><?php echo $danhmuc->name ?></a>
-                                            </li>
+                                                    <li><a href="index.php?controller=product&product=<?php echo $danhmuc->name ?>"><?php echo $danhmuc->name ?></a>
+                                                    </li>
                                             <?php
                                                 }
                                             } else {
@@ -122,8 +119,7 @@
                         </div>
                     </div>
                     <div class="hotline d-none d-lg-block">
-                        <p><i class="fi-rs-smartphone"></i><span><a
-                                    href="index.php?controller=login&&act=''">user</a></span>
+                        <p><i class="fi-rs-smartphone"></i><span><a href="index.php?controller=login&&act=''">user</a></span>
                         </p>
                     </div>
     </header>
