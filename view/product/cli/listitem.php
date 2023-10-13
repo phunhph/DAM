@@ -13,7 +13,7 @@ require_once 'view/globle/slideshow.php';
             ?>
                     <div class="item">
                         <img src="assets/imgs/item/<?php echo $product->image; ?>" alt="image">
-                        <h3><?php echo $product->name; ?></h3>
+                        <h4><?php echo $product->name; ?></h4>
                         <p>Price: $<?php echo $product->price; ?></p>
                         <p>Details: <?php echo $product->chitiet; ?></p>
                     </div>
