@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../../assets/css/css.css">
+<link rel="stylesheet" href="assets/css/css.css">
 <header>
     <div class="row mb header_admin">
         <h1>Admin</h1>

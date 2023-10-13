@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 <link rel="stylesheet" href="">
 <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
@@ -57,4 +57,4 @@
         <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
     </p>
 </footer>
-<script src="../../assets/js/js.js"></script>
+<script src="assets/js/js.js"></script>
