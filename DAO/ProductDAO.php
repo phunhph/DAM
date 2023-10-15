@@ -6,7 +6,7 @@ class ProductDAO
     private $PDO;
     public function __construct()
     {
-        require_once('config/PDO.php');
+        require('config/PDO.php');
         $this->PDO = $pdo;
     }
     // lấy toàn bộ
@@ -58,7 +58,7 @@ class ProductDAO
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // Tạo đối tượng sản phẩm từ dữ liệu và thêm vào danh sách
-            $product = new Product($row['id_pro'], $row['name_sp'], $row['img'], $row['price'], $row['mota']);
+            $product = new ProductShow($row['id_pro'], $row['name_sp'], $row['img'], $row['price'], $row['mota'], $row['luotxem'], $row['iddm']);
             $products[] = $product;
         }
         return $products;

@@ -60,16 +60,14 @@ require_once 'view/globle/headadmin.php';
                         if (isset($danhmucs) && is_array($danhmucs)) {
                             foreach ($danhmucs as $danhmuc) {
                         ?>
-                        <tr>
-                            <th><input type="checkbox" name="xoa[]" id="" value="<?php echo $danhmuc->id_d; ?>"></td>
-                            <th><?php echo $danhmuc->id_d; ?></th>
-                            <th><?php echo $danhmuc->name; ?></th>
-                            <th><input type="button" onclick="fix(event)" id="<?php echo $danhmuc->id_d; ?>"
-                                    value="Sửa">
-                                <input type="submit" value="Xóa"> <input type="hidden" name="id"
-                                    value="<?php echo $danhmuc->id_d; ?>">
-                            </th>
-                        </tr>
+                                <tr>
+                                    <th><input type="checkbox" name="xoa[]" id="" value="<?php echo $danhmuc->id_d; ?>"></td>
+                                    <th><?php echo $danhmuc->id_d; ?></th>
+                                    <th><?php echo $danhmuc->name; ?></th>
+                                    <th><input type="button" onclick="fix(event)" id="<?php echo $danhmuc->id_d; ?>" value="Sửa">
+                                        <input type="submit" value="Xóa"> <input type="hidden" name="id" value="<?php echo $danhmuc->id_d; ?>">
+                                    </th>
+                                </tr>
                         <?php
                             }
                         } else {
@@ -94,8 +92,7 @@ $Date = json_encode($danhmucs);
 ?>
 
 function ext() {
-    document.getElementById('fix').style.display = " none"; document.getElementById('add').style.display="block" ; }
-                        function fix(event) { var data=<?php echo $Date; ?>; data.forEach((element)=> {
+    document.getElementById('fix').style.display = " none"; document.getElementById('add').style.display="block" ; } function fix(event) { var data=<?php echo $Date; ?>; data.forEach((element)=> {
                     if (element.id_d == event.target.id) {
                     document.getElementById('id_l').value = element.id_d;
                     document.getElementById('ten_l').value = element.name;

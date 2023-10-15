@@ -71,8 +71,10 @@ class ProductController
     {
         $_GET['id'];
         $ProductDAO = new ProductDAO();
+        $commentDAO = new CommentDAO();
         $sanpham = $ProductDAO->SelectOneItem($_GET['id']);
         $products = $ProductDAO->lq($_GET['iddm']);
+        $comments =  $commentDAO->show($_GET['id']);
         $danhmucs = $ProductDAO->showDanhMuc();
         include('view/product/cli/item.php');
     }

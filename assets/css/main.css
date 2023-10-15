@@ -10564,10 +10564,11 @@ textarea {
   width: 100%;
 }
 .showcomment {
-  display: flex;
-  flex-direction: row;
-  gap: 1%;
+  display: grid;
+  grid-template-columns: 20% 80%; /* Thiết lập cột 5% cho các hàng */ /* Khoảng cách giữa các hàng và cột */
+  margin-bottom: 1%;
 }
+
 .inf {
   margin-top: 15px;
   display: flex;

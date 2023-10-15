@@ -12,9 +12,11 @@ require_once 'view/globle/slideshow.php';
             ?>
                     <div class="item">
                         <img src="assets/imgs/item/<?php echo $product->image; ?>" alt="image">
-                        <h4><a href="index.php?controller=product&act=item&id=<?php echo $product->id; ?>&iddm=<?php echo $product->danhmuc; ?>"><?php echo $product->name; ?></a>
-                            <p>Price: $<?php echo $product->price; ?></p>
-                            <button id="mua">Xem thông tin</button>
+                        <h4>
+                            <a href="index.php?controller=product&act=item&id=<?php echo $product->id; ?>&iddm=<?php echo $product->danhmuc; ?>"><?php echo $product->name; ?></a>
+                        </h4>
+                        <p>Price: $<?php echo $product->price; ?></p>
+                        <button id="mua">Xem thông tin</button>
                     </div>
             <?php
                 }

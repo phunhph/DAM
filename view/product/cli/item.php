@@ -18,27 +18,44 @@ require_once 'view/globle/head.php';
         <?php } ?>
     </div>
     <div class="bl">
+        <?php
+        if (isset($comments) && is_array($comments) && $comments != "") {
+            foreach ($comments as $comment) {
+
+        ?>
+                <div class="showcomment">
+                    <div class="inf">
+                        <img class="imgbl" src="assets/imgs/user.png" alt="" />
+                        <div class="text">
+                            <p class="time" style="margin: 0"><?php foreach ($comment as $c) {
+                                                                    if (strtotime($c)) { // Kiểm tra nếu giá trị có thể chuyển đổi thành ngày tháng
+                                                                        $day = $c;
+                                                                        echo $day;
+                                                                        break; // Kết thúc vòng lặp nếu đã tìm thấy ngày tháng
+                                                                    }
+                                                                } ?></p>
+                            <h4 style="margin: 0"><?php echo $comment->name_user ?></h4>
+                        </div>
+                    </div>
+                    <div class="context">
+                        <textarea name="" id="" cols="100" rows="5" readonly>
+                        <?php echo $comment->text ?>
+                 </textarea>
+                    </div>
+                </div>
+        <?php
+            }
+        } else {
+            echo "Trống";
+        }
+        ?>
         <div class="comment">
             <form action="">
-                <label for="bl">Bình luận: </label> <br />
+                <label for="bl">Bình luận:</label> <br />
                 <textarea name="bl" id="bl" cols="30" rows="10"></textarea>
                 <input type="hidden" name="time" id="" />
                 <input type="submit" value="Gửi" />
             </form>
-        </div>
-        <div class="showcomment">
-            <div class="inf">
-                <img class="imgbl" src="img/p1.png" alt="" />
-                <div class="text">
-                    <p class="time" style="margin: 0">12:00:002002/12/12</p>
-                    <h4 style="margin: 0">Name:user</h4>
-                </div>
-            </div>
-            <div class="context">
-                <textarea name="" id="" cols="100" rows="5" readonly>
-                jsdhfafafjdashfl;ákjfoi
-                 </textarea>
-            </div>
         </div>
     </div>
     <div class="lq">

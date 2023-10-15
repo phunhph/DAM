@@ -1,5 +1,6 @@
 <?php
 include 'DAO/ProductDAO.php';
+include 'DAO/CommentDAO.php';
 class HomeController
 {
 
