@@ -10,12 +10,12 @@ require_once 'view/globle/slideshow.php';
             if (isset($products) && is_array($products)) {
                 foreach ($products as $product) {
             ?>
-            <div class="item">
-                <img src="assets/imgs/item/<?php echo $product->image; ?>" alt="image">
-                <h4><?php echo $product->name; ?></h4>
-                <p>Price: $<?php echo $product->price; ?></p>
-                <p>Details: <?php echo $product->chitiet; ?></p>
-            </div>
+                    <div class="item">
+                        <img src="assets/imgs/item/<?php echo $product->image; ?>" alt="image">
+                        <h4><a href="index.php?controller=product&act=item&id=<?php echo $product->id; ?>&iddm=<?php echo $product->danhmuc; ?>"><?php echo $product->name; ?></a>
+                            <p>Price: $<?php echo $product->price; ?></p>
+                            <button id="mua">Xem thông tin</button>
+                    </div>
             <?php
                 }
             } else {

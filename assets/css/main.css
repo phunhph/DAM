@@ -10544,3 +10544,60 @@ span.fi-rs-apps {
   grid-row-gap: 5%;
   margin-bottom: 10%;
 }
+.thongtin {
+  width: 70%;
+  margin: 0 auto;
+}
+.sp {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 5%;
+}
+.tt {
+  padding-top: 8%;
+}
+.bl {
+  margin-top: 5%;
+}
+.bl form,
+textarea {
+  width: 100%;
+}
+.showcomment {
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+}
+.inf {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
+}
+.imgbl {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Đặt bán kính là 50% để biến ảnh thành hình tròn */
+}
+.text {
+  display: block;
+}
+.context textarea {
+  border: 1px solid gainsboro;
+  outline: none;
+  text-align: left;
+  width: 100%;
+}
+.lq {
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Tạo 6 cột có chiều rộng bằng nhau */
+  gap: 5px; /* Đặt khoảng cách 5px giữa các cột (tùy chọn) */
+}
+.itemlq {
+  width: 100%;
+}
+h4,
+h5 {
+  margin: 30px;
+}

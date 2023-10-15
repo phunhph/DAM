@@ -9,6 +9,7 @@ class ProductDAO
         require_once('config/PDO.php');
         $this->PDO = $pdo;
     }
+    // lấy toàn bộ
     function Select()
     {
         $sql = "SELECT * FROM `sanpham`";
@@ -19,12 +20,13 @@ class ProductDAO
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // Tạo đối tượng sản phẩm từ dữ liệu và thêm vào danh sách
-            $product = new Product($row['id_pro'], $row['name_sp'], $row['img'], $row['price'], $row['mota']);
+            $product = new ProductShow($row['id_pro'], $row['name_sp'], $row['img'], $row['price'], $row['mota'], $row['luotxem'], $row['iddm']);
             $products[] = $product;
         }
 
         return $products;
     }
+    //tìm kiếm
     function SelectItem($text)
     {
 
@@ -43,6 +45,7 @@ class ProductDAO
         }
         return $products;
     }
+    // tìm theo loại
     public function sharelist($loai)
     {
         $sql = "SELECT sanpham.* FROM `sanpham` 
@@ -60,6 +63,7 @@ class ProductDAO
         }
         return $products;
     }
+    // lấy tất cả các loại
     public function showDanhMuc()
     {
         $sql = "SELECT * FROM `danhmuc`";
@@ -76,18 +80,21 @@ class ProductDAO
 
         return $danhmucs;
     }
+    // thêm loại
     public function addDM($name)
     {
         $sql = "INSERT INTO `danhmuc`( `name`) VALUES ('$name')";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
+    //xoá loại
     public function deleteDM($id)
     {
         $sql = "DELETE FROM `danhmuc` WHERE id_d=$id";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
+    // xoá tất cả loại
     public function deleteallDM($id_a)
     {
         // Chuyển mảng ID thành một chuỗi dạng (id1, id2, id3, ...)
@@ -113,6 +120,7 @@ class ProductDAO
             return 0;
         } // Trả về 0 nếu không có sản phẩm
     }
+    // show roduct
     public function showPRO($page, $perPage)
     {
         $start = ($page - 1) * $perPage;
@@ -133,6 +141,7 @@ class ProductDAO
 
         return $products;
     }
+    // sửa
     public function updateDM($id, $name)
     {
 
@@ -140,6 +149,7 @@ class ProductDAO
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
+    // thêm
     public function addPRO($name, $price, $img, $mota, $iddm)
     {
         // lưu file
@@ -152,12 +162,14 @@ class ProductDAO
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
+    // xoá
     public function deletePRO($id)
     {
         $sql = "DELETE FROM `sanpham` WHERE id_pro=$id";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
+    // xoá tt cả
     public function deleteallPRO($id_a)
     {
         // Chuyển mảng ID thành một chuỗi dạng (id1, id2, id3, ...)
@@ -166,7 +178,7 @@ class ProductDAO
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
-
+    // sửa tất
     public function updatePRO($id, $name, $price, $img, $mota, $iddm)
     {
         if ($img['name'] == '') {
@@ -182,5 +194,40 @@ class ProductDAO
             $stmt = $this->PDO->prepare($sql);
             $stmt->execute();
         }
+    }
+    // tìm kiếm 1 sp
+    function SelectOneItem($id)
+    {
+        $sql = "SELECT * FROM `sanpham` where id_pro = '$id'";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+
+        $products = array(); // hoặc $products = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Tạo đối tượng sản phẩm từ dữ liệu và thêm vào danh sách
+            $product = new ProductShow($row['id_pro'], $row['name_sp'], $row['img'], $row['price'], $row['mota'], $row['luotxem'], $row['iddm']);
+            $products[] = $product;
+        }
+
+        return $products;
+    }
+    // lq
+    function lq($loai)
+    {
+        $sql = "SELECT sanpham.* FROM `sanpham` 
+        JOIN danhmuc ON danhmuc.id_d=sanpham.iddm 
+        WHERE danhmuc.id_d =  '$loai'";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+
+        $products = array(); // hoặc $products = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Tạo đối tượng sản phẩm từ dữ liệu và thêm vào danh sách
+            $product = new ProductShow($row['id_pro'], $row['name_sp'], $row['img'], $row['price'], $row['mota'], $row['luotxem'], $row['iddm']);
+            $products[] = $product;
+        }
+        return $products;
     }
 }

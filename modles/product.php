@@ -25,7 +25,7 @@ class ProductShow
     public $luotxem;
     public $danhmuc;
 
-    public function __construct($id, $name,  $price, $image, $chitiet, $luotxem, $danhmuc)
+    public function __construct($id, $name,   $image, $price, $chitiet, $luotxem, $danhmuc)
     {
         $this->id = $id;
         $this->name = $name;

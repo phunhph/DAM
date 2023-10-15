@@ -46,6 +46,10 @@ switch ($controller) {
                 $productController = new ProductController();
                 $productController->sanpham();
             }
+            if ($_GET['act'] == 'item') {
+                $productController = new ProductController();
+                $productController->item();
+            }
         } else {
             $productController = new ProductController();
             $productController->index();

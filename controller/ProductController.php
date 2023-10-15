@@ -67,4 +67,13 @@ class ProductController
     {
         include('view/home/homeAdmin.php');
     }
+    public function item()
+    {
+        $_GET['id'];
+        $ProductDAO = new ProductDAO();
+        $sanpham = $ProductDAO->SelectOneItem($_GET['id']);
+        $products = $ProductDAO->lq($_GET['iddm']);
+        $danhmucs = $ProductDAO->showDanhMuc();
+        include('view/product/cli/item.php');
+    }
 }
