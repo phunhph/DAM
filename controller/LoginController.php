@@ -21,12 +21,15 @@ class LoginController
 
         if ($userInfo) {
             // Lấy vai trò (role) từ dữ liệu người dùng
-
-            $role = $userInfo;
+            print_r($userInfo);
+            $role = $userInfo[0]['role'];
+            $id_acc = $userInfo[0]['id_u'];
             //print_r($role);
 
             // // Thiết lập cookie cho vai trò (role)
             setcookie("role", $role, time() + 3600, "/");
+            $_SESSION['role'] = $role;
+            $_SESSION['acc'] = $id_acc;
 
             // Chuyển hướng sau khi đăng nhập thành công
             header("Location: index.php?controller=home");
@@ -41,7 +44,7 @@ class LoginController
     }
     public function logout()
     {
-        setcookie("role", "", time() + 3600, "/");
+        session_unset();
         header("Location: index.php?controller=home");
     }
 }

@@ -19,21 +19,25 @@ class LoginDAO
 
     function Login($user, $pass)
     {
-        $sql = "SELECT role FROM taikhoan WHERE email = :user AND pass = :pass";
+        $sql = "SELECT id_ac, role FROM taikhoan WHERE email = :user AND pass = :pass";
         $stmt = $this->PDO->prepare($sql);
         $stmt->bindParam(':user', $user, PDO::PARAM_STR);
         $stmt->bindParam(':pass', $pass, PDO::PARAM_STR);
         $stmt->execute();
 
-        $roles = array();
+        $data = array();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // Tạo đối tượng Role từ dữ liệu và thêm vào danh sách roles
-            $role = new Role($row['role']);
-            $stringRepresentation = (string)$role;
-            $roles[] = $role;
+            // Create an associative array with 'id_u' and 'role' keys
+            $userData = array(
+                'id_u' => $row['id_ac'],
+                'role' => $row['role']
+            );
+
+            // Add the user data to the data array
+            $data[] = $userData;
         }
 
-        return $stringRepresentation;
+        return $data; // Return an array containing 'id_u' and 'role'
     }
 }

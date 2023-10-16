@@ -50,6 +50,10 @@ switch ($controller) {
                 $productController = new ProductController();
                 $productController->item();
             }
+            if ($_GET['act'] == 'bl') {
+                $productController = new ProductController();
+                $productController->binhluan();
+            }
         } else {
             $productController = new ProductController();
             $productController->index();
@@ -63,7 +67,7 @@ switch ($controller) {
             $LoginController = new LoginController();
             $LoginController->login();
         }
-        if (isset($_COOKIE["role"])) {
+        if (isset($_SESSION["role"])) {
             $UserController = new UserController();
             $UserController->index();
         } else {

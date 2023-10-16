@@ -7,8 +7,8 @@ class HomeController
     public function index()
     {
 
-        if (isset($_COOKIE["role"])) {
-            if ($_COOKIE['role'] == 1) {
+        if (isset($_SESSION["role"])) {
+            if ($_SESSION['role'] == 1) {
                 include('view/home/homeAdmin.php');
             } else {
                 if (isset($_POST['search']) && $_POST['search'] != "") {

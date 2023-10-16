@@ -3,13 +3,13 @@ class ProductController
 {
     public function index()
     {
-        if (isset($_COOKIE["role"])) {
-            if ($_COOKIE['role'] == 1) {
+        if (isset($_SESSION["role"])) {
+            if ($_SESSION["role"] == 1) {
 
                 include('view/home/homeAdmin.php');
             } else {
                 $ProductDAO = new ProductDAO();
-                $product = $ProductDAO->sharelist($_GET['product']);
+                $products = $ProductDAO->sharelist($_GET['product']);
                 $danhmucs = $ProductDAO->showDanhMuc();
                 include 'view/product/cli/listitem.php';
             }
@@ -65,17 +65,29 @@ class ProductController
     }
     public function binhluan()
     {
-        include('view/home/homeAdmin.php');
+
+        $ProductDAO = new ProductDAO();
+        $commentDAO = new CommentDAO();
+        $timestamp = $commentDAO->get_time_present();
+        $commentDAO->add($_POST['id_pro'], $_POST['bl'], $_SESSION['acc'], $_POST['time']);
+        $sanpham = $ProductDAO->SelectOneItem($_POST['id_pro']);
+        $products = $ProductDAO->lq($_POST['iddm']);
+        $comments =  $commentDAO->show($_POST['id_pro']);
+        $danhmucs = $ProductDAO->showDanhMuc();
+
+        include('view/product/cli/item.php');
     }
     public function item()
     {
         $_GET['id'];
         $ProductDAO = new ProductDAO();
         $commentDAO = new CommentDAO();
+        $timestamp = $commentDAO->get_time_present();
         $sanpham = $ProductDAO->SelectOneItem($_GET['id']);
         $products = $ProductDAO->lq($_GET['iddm']);
         $comments =  $commentDAO->show($_GET['id']);
         $danhmucs = $ProductDAO->showDanhMuc();
+
         include('view/product/cli/item.php');
     }
 }
