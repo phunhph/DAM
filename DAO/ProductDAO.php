@@ -230,4 +230,14 @@ class ProductDAO
         }
         return $products;
     }
+    // dem sp
+    function tk()
+    {
+        $sql = "SELECT danhmuc.name, COUNT(iddm) AS so_luong FROM `sanpham` JOIN danhmuc ON danhmuc.id_d = sanpham.iddm GROUP BY iddm";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+        // Lấy kết quả dưới dạng mảng kết hợp
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

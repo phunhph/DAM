@@ -9,6 +9,8 @@ class HomeController
 
         if (isset($_SESSION["role"])) {
             if ($_SESSION['role'] == 1) {
+                $ProductDAO = new ProductDAO();
+                $count = $ProductDAO->tk();
                 include('view/home/homeAdmin.php');
             } else {
                 if (isset($_POST['search']) && $_POST['search'] != "") {
