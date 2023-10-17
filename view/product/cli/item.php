@@ -6,15 +6,15 @@ require_once 'view/globle/head.php';
         <?php
         foreach ($sanpham as $s) {
         ?>
-        <div class="img">
-            <img src="assets/imgs/item/<?php echo $s->image ?>" alt="loi" />
-        </div>
-        <iv class="tt">
-            <h3>Name: <?php echo $s->name ?></h3>
-            <h4>Giá: <?php echo $s->price ?></h4>
-            <p>Mô tả: <?php echo $s->chitiet ?></p>
-            <button class="mua">Mua Hàng</button>
-        </iv>
+            <div class="img">
+                <img src="assets/imgs/item/<?php echo $s->image ?>" alt="loi" />
+            </div>
+            <div class="tt">
+                <h3>Name: <?php echo $s->name ?></h3>
+                <h4>Giá: <?php echo $s->price ?></h4>
+                <p>Mô tả: <?php echo $s->chitiet ?></p>
+                <button class="mua">Mua Hàng</button>
+            </div>
         <?php } ?>
     </div>
     <div class="bl">
@@ -23,11 +23,11 @@ require_once 'view/globle/head.php';
             foreach ($comments as $comment) {
 
         ?>
-        <div class="showcomment">
-            <div class="inf">
-                <img class="imgbl" src="assets/imgs/user.png" alt="" />
-                <div class="text">
-                    <p class="time" style="margin: 0"><?php $i = 1;
+                <div class="showcomment">
+                    <div class="inf">
+                        <img class="imgbl" src="assets/imgs/user.png" alt="" />
+                        <div class="text">
+                            <p class="time" style="margin: 0"><?php $i = 1;
                                                                 foreach ($comment as $c) {
 
                                                                     if (strtotime($c)) {
@@ -38,15 +38,15 @@ require_once 'view/globle/head.php';
                                                                         // Kết thúc vòng lặp nếu đã tìm thấy ngày tháng
                                                                     }
                                                                 } ?></p>
-                    <h4 style="margin: 0"><?php echo $comment->name_user ?></h4>
-                </div>
-            </div>
-            <div class="context">
-                <textarea name="" id="" cols="100" rows="5" readonly>
+                            <h4 style="margin: 0"><?php echo $comment->name_user ?></h4>
+                        </div>
+                    </div>
+                    <div class="context">
+                        <textarea name="" id="" cols="100" rows="5" readonly>
                         <?php echo $comment->text ?>
                  </textarea>
-            </div>
-        </div>
+                    </div>
+                </div>
         <?php
             }
         } else {
@@ -61,8 +61,8 @@ require_once 'view/globle/head.php';
                 <?php
                 foreach ($sanpham as $s) {
                 ?>
-                <input type="hidden" name="id_pro" id="" value="<?php echo $s->id ?>">
-                <input type="hidden" name="iddm" id="" value="<?php echo $s->danhmuc ?>">
+                    <input type="hidden" name="id_pro" id="" value="<?php echo $s->id ?>">
+                    <input type="hidden" name="iddm" id="" value="<?php echo $s->danhmuc ?>">
                 <?php } ?>
                 <input type="submit" value="Gửi" />
             </form>
@@ -73,13 +73,13 @@ require_once 'view/globle/head.php';
         if (isset($products) && is_array($products)) {
             foreach ($products as $product) {
         ?>
-        <div class="itemlq">
-            <img src="assets/imgs/item/<?php echo $product->image ?>" alt="loi" />
-            <div class="cont" width="100%">
-                <h4><?php echo $product->name; ?> </h4>
-                <h5 style="color: red;"><?php echo $product->price; ?> </h5>
-            </div>
-        </div>
+                <div class="itemlq">
+                    <img src="assets/imgs/item/<?php echo $product->image ?>" alt="loi" />
+                    <div class="cont" width="100%">
+                        <h4><?php echo $product->name; ?> </h4>
+                        <h5 style="color: red;"><?php echo $product->price; ?> </h5>
+                    </div>
+                </div>
         <?php
             }
         } else {

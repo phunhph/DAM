@@ -8,15 +8,6 @@ class LoginDAO
         require_once('config/PDO.php');
         $this->PDO = $pdo;
     }
-    public function topProducts()
-    {
-        $sql = "SELECT * FROM products";
-        $stmt = $this->PDO->prepare($sql);
-        // $stmt->bindParam(':category', $category);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     function Login($user, $pass)
     {
         $sql = "SELECT id_ac, role FROM taikhoan WHERE email = :user AND pass = :pass";
@@ -39,5 +30,36 @@ class LoginDAO
         }
 
         return $data; // Return an array containing 'id_u' and 'role'
+    }
+    function show()
+    {
+        $sql = "SELECT *  FROM taikhoan ";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+
+        $logins = array();
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Create a Login object and add it to the array
+            $login = new Login(
+                $row['id_ac'],
+                $row['user'],
+                $row['pass'],
+                $row['email'],
+                $row['address'],
+                $row['tel'],
+                $row['role']
+            );
+
+            $logins[] = $login;
+        }
+
+        return $logins; // Return an array of Login objects
+    }
+    function delete($id)
+    {
+        $sql = "DELETE FROM `taikhoan` WHERE id_ac = '$id'";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
     }
 }

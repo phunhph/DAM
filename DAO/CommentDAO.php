@@ -43,7 +43,17 @@ class CommentDAO
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute();
     }
-    public function delete($id)
+    public function count()
     {
+        $sql = "SELECT danhmuc.name, COUNT(iddm) AS so_luong
+        FROM binhluan
+        JOIN sanpham ON sanpham.id_pro = binhluan.idpro
+        JOIN danhmuc ON danhmuc.id_d = sanpham.iddm
+        GROUP BY danhmuc.id_d, danhmuc.name;";
+        $stmt = $this->PDO->prepare($sql);
+        $stmt->execute();
+        // Lấy kết quả dưới dạng mảng kết hợp
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 }
